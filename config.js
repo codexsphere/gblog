@@ -12,18 +12,31 @@ config = {
     // Configure your URL and mail settings here
     production: {
         url: 'http://my-ghost-blog.com',
-        mail: {},
+        //  mail: {
+        //      transport: 'SMTP',
+        //      options: {
+        //          service: 'Mailgun',
+        //          auth: {
+        //              user: '', // mailgun username
+        //              pass: ''  // mailgun password
+        //          }
+        //      }
+        //  },
         database: {
-            client: 'sqlite3',
-            connection: {
-                filename: path.join(__dirname, '/content/data/ghost.db')
+        client: 'mysql',
+        connection: {
+            host     : "127.0.0.1",
+            user     : "root",
+            password : "admin",
+            database : "ghost9",
+            charset  : 'utf8'
             },
             debug: false
         },
 
         server: {
             host: '127.0.0.1',
-            port: '2368'
+            port: '3333'
         }
     },
 
@@ -80,7 +93,7 @@ config = {
             // Host to be passed to node's `net.Server#listen()`
             host: '127.0.0.1',
             // Port to be passed to node's `net.Server#listen()`, for iisnode set this to `process.env.PORT`
-            port: '2368'
+            port: '3333'
         },
         // #### Paths
         // Specify where your content directory lives
